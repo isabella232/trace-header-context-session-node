@@ -49,6 +49,10 @@ Navigate to the source directory.  Run Maven to build:
 
 + This node is a single output node which may be placed in-line with any other nodes. 
 
++ Note: From version 6.5.2.2 (internal number not refleted in the jar name), it is possible to toggle on/off which individal data sets returned.
+
+![NodeOptions](./TraceHeaderContextSessionNode-Toggle.png)
+
 **SAMPLE OUTPUT**
 
     TraceHeaderContextSessionNode:08/02/2018 07:03:16:558 PM UTC: Thread[http-nio-18080-exec-7,5,main]: TransactionId[75b21e6a-b8db-47b4-b44d-d4574bc5fe2a-1396]

@@ -51,6 +51,43 @@ public class TraceHeaderContextSessionNode extends SingleOutcomeNode {
         default LogLevel logLevel() {
             return LogLevel.ERROR;
         }
+
+        @Attribute(order = 200)
+        default boolean fContext() {
+            return true;
+        }
+        @Attribute(order = 210)
+        default boolean fHeaders() {
+            return true;
+        }
+        @Attribute(order = 220)
+        default boolean fCookies() {
+            return true;
+        }
+        @Attribute(order = 230)
+        default boolean fSharedState() {
+            return true;
+        }
+        @Attribute(order = 240)
+        default boolean fTransientState() {
+            return true;
+        }
+        @Attribute(order = 250)
+        default boolean fLocales() {
+            return true;
+        }
+        @Attribute(order = 260)
+        default boolean fClientIp() {
+            return true;
+        }
+        @Attribute(order = 270)
+        default boolean fXForwardedFor() {
+            return true;
+        }
+        @Attribute(order = 280)
+        default boolean fCallbacks() {
+            return true;
+        }
     }
 
     @Inject
@@ -74,15 +111,15 @@ public class TraceHeaderContextSessionNode extends SingleOutcomeNode {
         String sXForwardedFor = context.request.headers.get("X-Forwarded-For").toString();
         String sCallbacks = context.getAllCallbacks().toString();
 
-        debugMesssage("*** CONTEXT ***\n" + sContext);
-        debugMesssage("*** HEADERS ***\n" + sHeaders);
-        debugMesssage("*** COOKIES ***\n" + sCookies);
-        debugMesssage("*** SHARED_STATE ***\n" + sSharedState);
-        debugMesssage("*** TRANSIENT STATE ***\n" + sTransientState);
-        debugMesssage("*** LOCALES ***\n" + sLocales);
-        debugMesssage("*** CLIENT_IP ***\n" + sClientIp);
-        debugMesssage("*** X-FORWARDED-FOR ***\n" + sXForwardedFor);
-        debugMesssage("*** CALLBACKS ***\n" + sCallbacks);
+        if (config.fContext()==true) debugMesssage("*** CONTEXT ***\n" + sContext);
+        if (config.fHeaders()==true) debugMesssage("*** HEADERS ***\n" + sHeaders);
+        if (config.fCookies()==true) debugMesssage("*** COOKIES ***\n" + sCookies);
+        if (config.fSharedState()==true) debugMesssage("*** SHARED_STATE ***\n" + sSharedState);
+        if (config.fTransientState()==true) debugMesssage("*** TRANSIENT STATE ***\n" + sTransientState);
+        if (config.fLocales()==true) debugMesssage("*** LOCALES ***\n" + sLocales);
+        if (config.fClientIp()==true) debugMesssage("*** CLIENT_IP ***\n" + sClientIp);
+        if (config.fXForwardedFor()==true) debugMesssage("*** X-FORWARDED-FOR ***\n" + sXForwardedFor);
+        if (config.fCallbacks()==true) debugMesssage("*** CALLBACKS ***\n" + sCallbacks);
 
         return actionBuilder.build();
     }

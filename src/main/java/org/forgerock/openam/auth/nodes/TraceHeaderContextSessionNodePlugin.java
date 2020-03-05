@@ -57,7 +57,7 @@ import org.forgerock.openam.plugins.PluginException;
  */
 public class TraceHeaderContextSessionNodePlugin extends AbstractNodeAmPlugin {
 
-	static private String currentVersion = "6.5.2";
+	static private String currentVersion = "6.5.2.2";
 	
     /** 
      * Specify the Map of list of node classes that the plugin is providing. These will then be installed and
@@ -99,12 +99,15 @@ public class TraceHeaderContextSessionNodePlugin extends AbstractNodeAmPlugin {
      * This method will be called when the version returned by {@link #getPluginVersion()} is higher than the
      * version already installed. This method will be called before the {@link #onStartup()} method.
      * 
-     * No need to implement this untils there are multiple versions of your auth node.
+     * No need to implement this until there are multiple versions of your auth node.
      *
      * @param fromVersion The old version of the plugin that has been installed.
      */	
 	@Override
 	public void upgrade(String fromVersion) throws PluginException {
+		if (fromVersion.equals("1.0.0") || fromVersion.equals("6.5.2") || fromVersion.equals("6.5.2.1")) {
+			pluginTools.upgradeAuthNode(TraceHeaderContextSessionNode.class);
+		}
 		super.upgrade(fromVersion);
 	}
 
