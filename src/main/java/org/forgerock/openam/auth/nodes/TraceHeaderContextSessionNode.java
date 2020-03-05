@@ -68,6 +68,7 @@ public class TraceHeaderContextSessionNode extends SingleOutcomeNode {
         String sHeaders = context.request.headers.toString();
         String sCookies = context.request.cookies.toString();
         String sSharedState = context.sharedState.toString();
+        String sTransientState = context.transientState.toString();
         String sLocales = context.request.locales.getLocales().toString();
         String sClientIp = context.request.clientIp;
         String sXForwardedFor = context.request.headers.get("X-Forwarded-For").toString();
@@ -77,6 +78,7 @@ public class TraceHeaderContextSessionNode extends SingleOutcomeNode {
         debugMesssage("*** HEADERS ***\n" + sHeaders);
         debugMesssage("*** COOKIES ***\n" + sCookies);
         debugMesssage("*** SHARED_STATE ***\n" + sSharedState);
+        debugMesssage("*** TRANSIENT STATE ***\n" + sTransientState);
         debugMesssage("*** LOCALES ***\n" + sLocales);
         debugMesssage("*** CLIENT_IP ***\n" + sClientIp);
         debugMesssage("*** X-FORWARDED-FOR ***\n" + sXForwardedFor);
