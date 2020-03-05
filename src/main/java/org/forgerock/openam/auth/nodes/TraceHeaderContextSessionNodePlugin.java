@@ -57,7 +57,7 @@ import org.forgerock.openam.plugins.PluginException;
  */
 public class TraceHeaderContextSessionNodePlugin extends AbstractNodeAmPlugin {
 
-	static private String currentVersion = "1.0.0";
+	static private String currentVersion = "6.5.2";
 	
     /** 
      * Specify the Map of list of node classes that the plugin is providing. These will then be installed and
